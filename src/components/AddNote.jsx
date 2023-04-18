@@ -40,7 +40,7 @@ const AddNote = ({handleAddNote}) =>{
                     placeholder ='Put Your Deadline here... (dd/mm/yy)'
                     value = {deadlineText}
                     onChange = {handleChangeDeadline}
-                ></textarea>
+                ></textarea> 
                 <div className="flex p-5 items-center justify-between">
                     <small> {charLimit-noteText.length} Remaining</small>
                     <button className="bg-gray-50 m-5 rounded-2xl py-2 px-8 hover:bg-white cursor-pointer" onClick={handleSaveClick}>Save</button>
