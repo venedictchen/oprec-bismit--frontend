@@ -21,7 +21,7 @@ const App = () => {
     },[]);
 
 
-    const addNote = (text,deadlineText) =>{
+    const addNote = (text,deadlineText,id) =>{
         const data = {
             id:nanoid(),
             name:nanoid(),
@@ -39,7 +39,7 @@ const App = () => {
 
     const deleteNote = (id) =>{
         const newNotes = notes.filter((note) => note.id !== id);
-        axios.delete("http://127.0.0.1:8000/item/" + id)
+        axios.delete("http://127.0.0.1:8000/item/" +id)
         .then(res => {
         console.log(res.data);
         setNotes(newNotes);
@@ -50,7 +50,7 @@ const App = () => {
 
 
     return (
-    <div className="mb-37.5 max-w-[1100px] mx-auto px-4 min-h-screen">
+    <div className="mb-37.5 mr-auto ml-auto max-w-4xl mx-auto px-4 min-h-screen">
         <Header 
         />
         <Search 

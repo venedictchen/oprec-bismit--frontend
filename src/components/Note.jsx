@@ -55,44 +55,47 @@ const Note = ({id,text,deadline,handleDeleteNote}) =>{
                 size="1.3em"/>
                 <small className='mr-8'>Double click to edit list</small> 
         </div>
-        <div className='flex justify-between'>
-            <small className='text-sm'>{new Date().toLocaleDateString()}</small>       
-            <div className='flex justify-between'>
-            <div className="flex items-center justify-between">
-                <small>Deadline: </small>     
+     
+        <div className="flex-col break-words justify-between bg-slate-200 rounded-lg p-2 whitespace-pre-wrap min-w-[170px]">
+        <div className='flex justify-start'>
+            <small className="text-sm mr-3">{new Date().toLocaleDateString()}</small>      
+            <small className='mr-3'>Deadline: </small>     
+            <input
+                className={`${isEditingDeadline ? "bg-white" : "bg-transparent"} mb-5 text-black text-sm rounded-lg resize-none  focus:outline-none`}
+                rows ='3'
+                cols ='40'
+                value = {editDeadline}
+                onChange = {handleChangeDeadline}
+                onBlur={handleBlur}
+                readOnly = {!isEditingDeadline}
+                disabled = {!isEditingDeadline}
+                ref={inputRef}
+            ></input>
+            <div className='flex ml-12'>
+            <AiFillEdit 
+            className='ml-1 cursor-pointer  transition ease-in-out delay-150 bg-[#7b5f9] hover:-translate-y-1 hover:scale-110 rounded-lg hover:bg-white hover:animate-pulse duration-300 ...'
+            onClick={ ()=> {
+                setisEditingDeadline(true)
+                inputRef.current.focus()
+            }} 
+            size="1.3em"/>
+            <small className='p-auto  mr-4 text-sm'>Double click to edit deadline</small> 
                 
-                <input
-                    className={`${isEditingDeadline ? "bg-white" : "bg-transparent"} mr-16 text-black text-sm rounded-lg resize-none  focus:outline-none`}
-                    rows ='3'
-                    cols ='40'
-                    value = {editDeadline}
-                    onChange = {handleChangeDeadline}
-                    onBlur={handleBlur}
-                    readOnly = {!isEditingDeadline}
-                    disabled = {!isEditingDeadline}
-                    ref={inputRef}
-                ></input>
-            </div>  
-            <div className='flex justify-between mr-[250px]'>
-                 <AiFillEdit 
-                className='cursor-pointer  transition ease-in-out delay-150 bg-[#7b5f9] hover:-translate-y-1 hover:scale-110 rounded-lg hover:bg-white hover:animate-pulse duration-300 ...'
-                onClick={ ()=> {
-                    setisEditingDeadline(true)
-                    inputRef.current.focus()
-                }} 
-                size="1.3em"/>
-                <small>Double click to edit deadline</small> 
-            </div>
-                
-                
-                
-            </div>
+            <div className='p-auto w-5 h-5'>
             <MdDeleteForever 
                 onClick={ ()=> handleDeleteNote(id)}
-                className='cursor-pointer mr-3 transition ease-in-out delay-150 bg-[#7b5f9] hover:-translate-y-1 hover:scale-110 rounded-lg hover:bg-white hover:animate-pulse duration-300 ...' 
-                size="1.3em"/>  
-        </div>
-        </div>
+                
+                className=' cursor-pointer mr-3 transition ease-in-out delay-150 bg-[#7b5f9] hover:-translate-y-1 hover:scale-110 rounded-lg hover:bg-white hover:animate-pulse duration-300 ...' 
+                size="1.3em"/> 
+            </div>
+            </div>
+        
+            </div>
+            </div>
+        </div>  
+        
+        
+        
     );
 };
 

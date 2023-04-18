@@ -28,15 +28,15 @@ const AddNote = ({handleAddNote}) =>{
                 <textarea
                     className="bg-[#228B22] text-white m-7 rounded-lg resize-none  focus:outline-none"
                     rows ='3'
-                    cols ='40'
+                    cols ='35'
                     placeholder ='Type to add a note.....'
                     value = {noteText}
                     onChange = {handleChange}
                 ></textarea>
                 <textarea
-                    className="bg-[#228B22] mb-7 text-white  rounded-lg resize-none  focus:outline-none"
+                    className="bg-[#228B22] ml-2 mb-7 px-5 text-white  rounded-lg resize-none  focus:outline-none"
                     rows ='3'
-                    cols ='40'
+                    cols ='35'
                     placeholder ='Put Your Deadline here... (dd/mm/yy)'
                     value = {deadlineText}
                     onChange = {handleChangeDeadline}
